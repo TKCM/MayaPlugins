@@ -1,0 +1,8 @@
+eigen/
+maya_SDK/
+InstantMeshes/x64/
+InstantMeshes/.vs/
+InstantMeshes/Maya_InstantMeshes.vcxproj.user
+InstantMeshes/Maya_InstantMeshes.vcxproj.filters
+InstantMeshes/source/src/adjacency.lib
+InstantMeshes/source/nanogui/button.lib

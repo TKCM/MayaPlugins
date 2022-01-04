@@ -1,0 +1,60 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+global proc remesh_Menu(string $enumAttrName){
+    attrEnumOptionMenuGrp
+        -label "Remesh as"
+        -attribute $enumAttrName
+        -enumeratedItem 0 "Triangles (6,6)"
+        -enumeratedItem 1 "Quads (2,4)"
+        -enumeratedItem 2 "Quad (4,4)"
+        remesh_List;
+}
+global proc remesh_MenuUpdate(string $enumAttrName){
+    attrEnumOptionMenuGrp -e -attribute $enumAttrName remesh_List;
+}
+
+global proc target_Menu(string $enumAttrName){
+    attrEnumOptionMenuGrp
+        -label "Target Type"
+        -attribute $enumAttrName
+        -enumeratedItem 0 "Vertex Count"
+        -enumeratedItem 1 "Face Count"
+        -enumeratedItem 2 "Face Scale"
+        target_List;
+}
+global proc target_MenuUpdate(string $enumAttrName){
+    attrEnumOptionMenuGrp -e -attribute $enumAttrName target_List;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc AEMaya_InstantMeshesTemplate(string $nodeName) {
+	editorTemplate -beginScrollLayout;
+		
+		editorTemplate -beginLayout "Main" -collapse 0 ;
+			editorTemplate -callCustom "remesh_Menu" "remesh_MenuUpdate" "remeshAs";
+			editorTemplate -callCustom "target_Menu" "target_MenuUpdate" "targetType";
+			editorTemplate -label "Target : Vertex Count" -addControl "vertexCount";
+			editorTemplate -label "Target : Face Count" -addControl "faceCount";
+			editorTemplate -label "Target : Face Scale" -addControl "scale";
+			editorTemplate -label "Pure Quad" -addControl "pureQuad";
+			editorTemplate -label "Smoothing Iterations" -addControl "smoothIter";
+			editorTemplate -label "Align to Boundaries" -addControl "alignToBoundaries";
+			editorTemplate -label "Extrinsic" -addControl "extrinsic";
+			editorTemplate -label "Deterministic" -addControl "deterministic";
+			editorTemplate -label "Crease Angle" -addControl "creaseAngle";
+		editorTemplate -endLayout ;
+		
+		editorTemplate -beginLayout "Original Attributes" -collapse true;
+			AElocatorInclude $nodeName;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+
+		editorTemplate -suppress "sourceMesh";
+		editorTemplate -suppress "sourceMeshTransform";
+		editorTemplate -suppress "resultMesh";
+		
+    editorTemplate -endScrollLayout; 
+}
