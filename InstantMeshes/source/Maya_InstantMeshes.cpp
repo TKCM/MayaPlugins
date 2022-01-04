@@ -1,11 +1,8 @@
 #include "Maya_InstantMeshes.h"
 
-// ノードID
 #define kPluginNodeId 0x19970000
-// ノード名
 #define kPluginNodeName "Maya_InstantMeshes"
 
-// メンバ変数
 MObject Maya_InstantMeshes::sourceMesh;
 MObject Maya_InstantMeshes::sourceMeshTransform;
 MObject Maya_InstantMeshes::resultMesh;
@@ -23,13 +20,14 @@ MObject Maya_InstantMeshes::pureQuad;
 
 MStatus Maya_InstantMeshes::compute ( const MPlug &plug, MDataBlock& dataBlock ) 
 {
+	///////////////////////////////////////////////////////////////
 	// input
 	MFnMesh inSourceMesh = dataBlock.inputValue ( sourceMesh ).asMesh ();
 	MMatrix inSourceMatrix = dataBlock.inputValue ( sourceMeshTransform ).asMatrix ();
 
 	if (inSourceMesh.numPolygons () < 4) { return MStatus::kFailure; }
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////
 	// core
 
 	// viewer.h:72
@@ -228,6 +226,7 @@ MStatus Maya_InstantMeshes::compute ( const MPlug &plug, MDataBlock& dataBlock )
 		return MStatus::kFailure;
 	}
 
+	///////////////////////////////////////////////////////////////
 	// output
 	if (0 < instantMesh.numPolygons ()) {
 		MDataHandle outFnMeshHandle = dataBlock.outputValue ( resultMesh );
