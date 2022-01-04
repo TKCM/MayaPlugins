@@ -1,4 +1,3 @@
-eigen/
 maya_SDK/
 InstantMeshes/x64/
 InstantMeshes/.vs/
@@ -6,3 +5,8 @@ InstantMeshes/Maya_InstantMeshes.vcxproj.user
 InstantMeshes/Maya_InstantMeshes.vcxproj.filters
 InstantMeshes/source/src/adjacency.lib
 InstantMeshes/source/nanogui/button.lib
+eigen/
+RBF_MeshRetargeter/.vs/
+RBF_MeshRetargeter/x64/
+RBF_MeshRetargeter/RBF_MeshRetargeter.vcxproj.filters
+RBF_MeshRetargeter/RBF_MeshRetargeter.vcxproj.user
