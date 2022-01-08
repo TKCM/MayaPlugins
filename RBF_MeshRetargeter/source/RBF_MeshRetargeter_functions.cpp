@@ -1,7 +1,7 @@
 #include "RBF_MeshRetargeter_functions.h"
 
 namespace RBFRetargeterFn {
-	void setup ( RBF& rbf, const Eigen::MatrixXf& F, const Eigen::MatrixXf& P, int type )
+	void setup ( RBF& rbf, const Eigen::MatrixXf& P, const Eigen::MatrixXf& F, int type )
 	{
 		if (P.rows () != F.rows ()) { return; }
 
