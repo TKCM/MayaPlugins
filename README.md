@@ -1,3 +1,4 @@
+
 # MayaPlugins
  ## InstantMeshes
  [InstantMeshes](https://github.com/wjakob/instant-meshes)をMaya上で実行するカスタムノード  
@@ -7,7 +8,8 @@
  RBFを用いたメッシュのリターゲット  
  [-> movie](https://vimeo.com/manage/videos/267164370)
  ![RBF_MeshRetargeter](https://user-images.githubusercontent.com/13941074/148634704-a87ab557-d391-4ebd-b51e-df377797e819.jpg)
-
+ ## RBF_Solver
+ ![RBF_Solver](https://user-images.githubusercontent.com/13941074/154509169-5f186da7-c95d-4658-889b-c7d7d40348d8.png)
  ## Build
   ・[Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)を取得・解凍してeigenフォルダ内に配置する  
   ・[MayaDevKit](https://www.autodesk.com/developer-network/platform-technologies/maya)を取得・解凍してmaya_SDKに配置する
