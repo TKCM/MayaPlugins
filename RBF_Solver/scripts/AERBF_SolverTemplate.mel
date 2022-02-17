@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+global proc rbf_type_Menu(string $enumAttrName){
+    attrEnumOptionMenuGrp
+        -label "setup RBF type"
+        -attribute $enumAttrName
+        -enumeratedItem 0 "Zero"
+        -enumeratedItem 1 "Linear"
+        -enumeratedItem 2 "Cubic"
+        -enumeratedItem 2 "Gaussian"
+        rbf_typ_List;
+}
+global proc rbf_type_MenuUpdate(string $enumAttrName){
+    attrEnumOptionMenuGrp -e -attribute $enumAttrName rbf_typ_List;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+global proc AERBF_SolverTemplate(string $nodeName) {
+	editorTemplate -beginScrollLayout;
+		
+		editorTemplate -beginLayout "Main" -collapse 0 ;
+			editorTemplate -callCustom "rbf_type_Menu" "rbf_type_MenuUpdate" "setupType";
+		editorTemplate -endLayout ;
+		
+		editorTemplate -suppress "input";
+		editorTemplate -suppress "setupReferenceList";
+		editorTemplate -suppress "setupValuesList";
+		editorTemplate -suppress "reference";
+		editorTemplate -suppress "values";
+		
+    editorTemplate -endScrollLayout; 
+}
